@@ -4,11 +4,35 @@
     box-sizing: border-box;
 }
 
+ul {
+    margin: 0;
+}
+
 body {
     background-color: aliceblue;
 }
 
+h1 {
+    width: 100vw;
+    padding: 20px 0;
+    background-color: rgba(0,0,139,0.75);
+    border-bottom: rgba(0,0,139,1) 10px solid;
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+    
+}
+
+.parent {
+    margin-top: 20px;
+    border: rgba(0,0,139,1) solid 2px;
+}
 /* Styles the search form */
+h3 {
+    font-weight: lighter;
+    margin: 10px;
+}
+
 form {
     width: 100%;
 }
@@ -17,6 +41,7 @@ label {
     /* color:white; */
     display:inline;
     font-size: 5vw;
+    font-weight: lighter;
 }
 
 #cityName {
@@ -27,18 +52,66 @@ label {
 
 .searchBtn {
     width: 90%;
-    /* border: white solid 3px;
-    color:white; */
     height: 40px;
     margin: 5px auto;
+    background-color: rgba(0,0,200,.5);
+    border-radius: 10px;
+    border: darkblue solid 3px;
+    filter: drop-shadow(5px 5px 5px rgba(0,0,139,0.25));
+    color:white;
+}
+
+.searchBtn:hover {
+    background-color: rgba(0,0,139,1);
+    cursor: pointer;
 }
 /* End of styling the search form */
 
-#currentWeather {
-    height: auto;
+.historyBtn {
+    width: 80%;
+    height: 40px;
+    margin: 5px auto;
+    background-color: rgba(0,0,139,.75);
+    border: rgba(0,0,139,1) solid 3px;
+    border-radius: 10px;
+    color:white;
+    filter: drop-shadow(5px 5px 5px rgba(0,0,139,0.25));
 }
 
-ul {
+.historyBtn:hover {
+    background-color: rgba(0,0,139,1);
+    cursor: pointer;
+}
+
+.current {
+    height: auto;
+    border: gainsboro 2px solid;
+    margin-top: 10px;
+}
+
+.forecast {
     margin: 5px;
     border: gainsboro 2px solid;
+}
+
+/* For iPads and Tablets 481px - 768px */
+@media screen and (min-width:481px) {
+    label {
+        font-size: 3vw;
+    }
+}
+
+/* For Small Screens and Laptops 769px - 1024px */
+@media screen and (min-width:769px) {
+    label {
+        font-size: 2vw;
+    }
+}
+    
+
+/* For Desktops and Large Screens 1025px - 1200px */
+@media screen and (min-width:1025px) {
+    label {
+        font-size: 1.5vw;
+    }
 }

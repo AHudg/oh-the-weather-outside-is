@@ -11,20 +11,21 @@
 </head>
 
 <body>
+    <h1>Andy's Weather Predictions</h1>
     <section class="grid-container fluid text-center">
-        <h1>Andy's Weather Predictions</h1>
-        <div class="grid-x">
+        <div class="grid-x align-spaced">
             <!-- div that holds the search ability and localStorage recall buttons-->
-            <div class="cell small-12 medium-4 large-4">
+            <div class="cell small-12 medium-4 parent">
                 <h3>Get the Weather by City!</h3>
                 <form>
                     <label for="cityName">City Name:</label>
                     <input type="text" id="cityName" name="cityName" placeholder="Search for a city here!">
                     <button type="button" class="searchBtn">Search!</button>
+                    <ul id="buttonList"></ul>
                 </form>
             </div>
             <!-- div that allows my to grid-y for formatting -->
-            <div class="cell small-12 medium-8 large-8 grid-y">
+            <div class="cell small-12 medium-7 grid-y">
                 <!-- div that contains the current weather of the selected city-->
                 <div id="currentWeather" class="cell small-12 medium-6">
 
