@@ -43,7 +43,7 @@ var oneCall = function(latitude,longitude) {
             if (response.ok) {
                 response.json().then(function(data) {
                     currentWeather(data);
-                    // forecastWeather(data);
+                    forecastWeather(data);
                 });
             } else {
                 alert("Error.");
@@ -83,17 +83,50 @@ var currentWeather = function(data) {
     currentList.append(currentListHumid);
     currentList.append(currentListUVI);
     currentList.append(currnetListWind);
-    
-
-}
+};
 
 // populates the five day forecast section
 var forecastWeather = function(data) {
-    console.log(data);
-    console.log(data.daily[0].temp.day);
-    console.log(data.daily[0].humidity);
-    console.log(data.daily[0].wind_speed);
-    console.log(data.daily[0].uvi);
+    // var currentTemp = [];
+    // var currentHumidity = [];
+    // var currentWindSpeed = [];
+    // var currentUVI = [];
+
+    for (var i = 0; i < 5; i++) {
+        var currentTemp[i] = data.daily[i].temp.day;
+        var currentHumidity[i] = data.daily[i].humidity;
+        var currentWindSpeed[i] = data.daily[i].wind_speed;
+        var currentUVI[i] = data.daily[i].uvi;
+    };
+    console.log(currentTemp);
+
+    var cityName = $('input')[0].value;
+    var cityEl = $("<h2>" + cityName + "</h2>");
+    // style City Name here and write the city name in Title Case somehow
+    $('#forecastWeather').append(cityEl);
+
+    var currentList = $('<ul>');
+    currentList.attr('style','list-style:none');
+
+    var currentListTemp = $('<li>');
+    currentListTemp.text("Temperature: " + currentTemp + " °F");
+
+    var currentListHumid = $('<li>');
+    currentListHumid.text("Humidity: " + currentHumidity + "%");
+
+    var currentListUVI = $('<li>');
+    currentListUVI.text("UV Index: " + currentUVI);
+
+    var currnetListWind = $('<li>');
+    currnetListWind.text("Wind Speed: " + currentWindSpeed + " mph");
+
+    $("#currentWeather").append(currentList);
+    currentList.append(currentListTemp);
+    currentList.append(currentListHumid);
+    currentList.append(currentListUVI);
+    currentList.append(currnetListWind);
+    
+
 }
 
 $(".searchBtn").click(getLatLong);
