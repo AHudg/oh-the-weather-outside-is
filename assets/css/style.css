@@ -4,14 +4,15 @@
     box-sizing: border-box;
 }
 
+/* Styles the search form */
 form {
     width: 100%;
-    
 }
 
 label {
     color:white;
     display:inline;
+    font-size: 5vw;
 }
 
 #cityName {
@@ -19,6 +20,15 @@ label {
     display: inline;
     margin: 0;
 }
+
+.searchBtn {
+    width: 90%;
+    border: white solid 3px;
+    color:white;
+    height: 40px;
+    margin: 5px auto;
+}
+/* End of styling the search form */
 
 /* These classes are being used for brainstorming purposes and should be deleted and elements all restyled */
 .bg-pink {
@@ -28,7 +38,6 @@ label {
 
 .bg-blue {
     background-color: blue;
-    height:500px;
 }
 
 .bg-green {
