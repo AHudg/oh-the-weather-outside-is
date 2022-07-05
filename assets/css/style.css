@@ -33,7 +33,6 @@ label {
 /* These classes are being used for brainstorming purposes and should be deleted and elements all restyled */
 .bg-pink {
     background-color: pink;
-    height:500px;
 }
 
 .bg-blue {
@@ -42,5 +41,4 @@ label {
 
 .bg-green {
     background-color: green;
-    height:500px;
 }

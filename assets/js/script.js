@@ -73,7 +73,6 @@ var currentWeather = function(data) {
     timeEl.text(currentDate);
     $('#currentWeather').append(timeEl);
 
-
     var currentList = $('<ul>');
     currentList.attr('style','list-style:none');
 
@@ -86,57 +85,42 @@ var currentWeather = function(data) {
     var currentListUVI = $('<li>');
     currentListUVI.text("UV Index: " + currentUVI);
 
-    var currnetListWind = $('<li>');
-    currnetListWind.text("Wind Speed: " + currentWindSpeed + " mph");
+    var currentListWind = $('<li>');
+    currentListWind.text("Wind Speed: " + currentWindSpeed + " mph");
 
     $("#currentWeather").append(currentList);
     currentList.append(currentListTemp);
     currentList.append(currentListHumid);
     currentList.append(currentListUVI);
-    currentList.append(currnetListWind);
+    currentList.append(currentListWind);
 };
 
 // populates the five day forecast section
 var forecastWeather = function(data) {
-    var currentTemp = [];
-    var currentHumidity = [];
-    var currentWindSpeed = [];
-    var currentUVI = [];
 
     for (var i = 0; i < 5; i++) {
-        currentTemp[i] = data.daily[i].temp.day;
-        currentHumidity[i] = data.daily[i].humidity;
-        currentWindSpeed[i] = data.daily[i].wind_speed;
-        currentUVI[i] = data.daily[i].uvi;
+        forecastTemp = data.daily[i].temp.day;
+        forecastHumid = data.daily[i].humidity;
+        forecastWind = data.daily[i].wind_speed;
+
+        var forecastList = $('<ul>');
+        forecastList.attr('style','list-style:none');
+        forecastList.attr('class','cell small-12 medium-2');
+        $("#forecastWeather").append(forecastList);
+
+        var forecastTempLiEl = $('<li>');
+        forecastTempLiEl.text("Temperature: " + forecastTemp + " °F");
+
+        var forecastHumidLiEl = $('<li>');
+        forecastHumidLiEl.text("Humidity: " + forecastHumid + "%");
+
+        var forecastWindLiEl = $('<li>');
+        forecastWindLiEl.text("Wind Speed: " + forecastWind + " mph");
+
+        forecastList.append(forecastTempLiEl);
+        forecastList.append(forecastHumidLiEl);
+        forecastList.append(forecastWindLiEl);
     };
-
-    var cityName = $('input')[0].value;
-    var cityEl = $("<h2>" + cityName + "</h2>");
-    // style City Name here and write the city name in Title Case somehow
-    $('#forecastWeather').append(cityEl);
-
-    var currentList = $('<ul>');
-    currentList.attr('style','list-style:none');
-
-    var currentListTemp = $('<li>');
-    currentListTemp.text("Temperature: " + currentTemp + " °F");
-
-    var currentListHumid = $('<li>');
-    currentListHumid.text("Humidity: " + currentHumidity + "%");
-
-    var currentListUVI = $('<li>');
-    currentListUVI.text("UV Index: " + currentUVI);
-
-    var currnetListWind = $('<li>');
-    currnetListWind.text("Wind Speed: " + currentWindSpeed + " mph");
-
-    $("#currentWeather").append(currentList);
-    currentList.append(currentListTemp);
-    currentList.append(currentListHumid);
-    currentList.append(currentListUVI);
-    currentList.append(currnetListWind);
-    
-
 }
 
 $(".searchBtn").click(getLatLong);
