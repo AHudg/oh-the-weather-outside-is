@@ -59,7 +59,7 @@ var oneCall = function(latitude,longitude) {
 // populates the current weather section
 var currentWeather = function(data) {
     $('#currentWeather').empty();
-    $("#currentWeather").attr('class','parent');
+    $('#currentWeather').addClass('parent border');
     var currentIcon = data.current.weather[0].icon;
     var currentTemp = data.current.temp;
     var currentHumidity = data.current.humidity;
@@ -139,6 +139,7 @@ var currentWeather = function(data) {
 // populates the five day forecast section
 var forecastWeather = function(data) {
     $('#forecastWeather').empty();
+    $('#forecastWeather').addClass('parent border');
     $('#forecastWeather').append($('<h4>').attr('class','cell small-12 forecast parent').text("Five Day Forecast:"));
 
 
@@ -161,7 +162,7 @@ var forecastWeather = function(data) {
 
         var forecastList = $('<ul>');
         forecastList.attr('style','list-style:none');
-        forecastList.attr('class','cell small-12 medium-5 large-2 parent forecast');
+        forecastList.attr('class','cell small-12 medium-5 large-2 parent border');
         $("#forecastWeather").append(forecastList);
 
         forecastList.append(forecastImg);

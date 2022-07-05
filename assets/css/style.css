@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+/* overrides Foundation CSS */
 ul {
     margin: 0;
 }
@@ -24,7 +25,16 @@ h1 {
 
 .parent {
     margin-top: 20px;
+}
+
+.border {
     border: rgba(0,0,139,1) solid 2px;
+    filter: drop-shadow(5px 5px 5px rgba(0,0,139,0.25));
+    padding:5px;
+}
+
+.forecast {
+    background-color: aqua;
 }
 
 /* Styles the search form */
@@ -123,10 +133,6 @@ label {
     margin: auto;
 }
 
-.forecast {
-    height:fit-content;
-}
-
 /* For iPads and Tablets 481px - 768px */
 @media screen and (min-width:481px) {
     label {
@@ -141,7 +147,6 @@ label {
     }
 }
     
-
 /* For Desktops and Large Screens 1025px - 1200px */
 @media screen and (min-width:1025px) {
     label {
