@@ -20,13 +20,13 @@ h1 {
     color: white;
     font-weight: bolder;
     text-align: center;
-    
 }
 
 .parent {
     margin-top: 20px;
     border: rgba(0,0,139,1) solid 2px;
 }
+
 /* Styles the search form */
 h3 {
     font-weight: lighter;
@@ -83,15 +83,48 @@ label {
     cursor: pointer;
 }
 
-.current {
-    height: auto;
-    border: gainsboro 2px solid;
-    margin-top: 10px;
+.uvi-low {
+    background-color: green;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 5px;
+    margin: auto;
+}
+
+.uvi-moderate {
+    background-color: yellow;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 5px;
+    margin: auto;
+}
+
+.uvi-high {
+    background-color: orange;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 5px;
+    margin: auto;
+}
+
+.uvi-veryhigh {
+    background-color: red;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 5px;
+    margin: auto;
+}
+
+.uvi-extreme {
+    background-color: purple;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 5px;
+    margin: auto;
 }
 
 .forecast {
-    margin: 5px;
-    border: gainsboro 2px solid;
+    height:fit-content;
 }
 
 /* For iPads and Tablets 481px - 768px */

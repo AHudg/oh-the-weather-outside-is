@@ -46,6 +46,7 @@ var oneCall = function(latitude,longitude) {
         .then(function(response) {
             if (response.ok) {
                 response.json().then(function(data) {
+                    console.log(data);
                     currentWeather(data);
                     forecastWeather(data);
                 });
@@ -59,6 +60,7 @@ var oneCall = function(latitude,longitude) {
 var currentWeather = function(data) {
     $('#currentWeather').empty();
     $("#currentWeather").attr('class','parent');
+    var currentIcon = data.current.weather[0].icon;
     var currentTemp = data.current.temp;
     var currentHumidity = data.current.humidity;
     var currentWindSpeed = data.current.wind_speed;
@@ -70,6 +72,10 @@ var currentWeather = function(data) {
     $(cityEl).text(cityName);
     // style City Name here and write the city name in Title Case somehow
     $('#currentWeather').append(cityEl);
+
+    var currentImg = $('<img>').attr('src',"http://openweathermap.org/img/w/" + currentIcon + ".png");
+    cityEl.append(currentImg);
+
     var getDate = new Date();
     var currentDate = getDate.toLocaleString('en-US',{
         weekday: 'long',
@@ -92,6 +98,33 @@ var currentWeather = function(data) {
 
     var currentListUVI = $('<li>');
     currentListUVI.text("UV Index: " + currentUVI);
+    switch(Math.floor(currentUVI)) {
+        case 0:
+        case 1:
+        case 2:
+            currentListUVI.attr('class','uvi-low');
+            break;
+        case 3:
+        case 4:
+        case 5:
+            currentListUVI.attr('class','uvi-moderate');
+            break;
+        case 6:
+        case 7:
+            currentListUVI.attr('class','uvi-high');
+            break;
+        case 8:
+        case 9:
+        case 10:
+            currentListUVI.attr('class','uvi-veryhigh');
+            break;
+        case 11:
+            currentListUVI.attr('class','uvi-extreme');
+            break;
+        default:
+            alert("error");
+            break;
+    };
 
     var currentListWind = $('<li>');
     currentListWind.text("Wind Speed: " + currentWindSpeed + " mph");
@@ -106,11 +139,16 @@ var currentWeather = function(data) {
 // populates the five day forecast section
 var forecastWeather = function(data) {
     $('#forecastWeather').empty();
+    $('#forecastWeather').append($('<h4>').attr('class','cell small-12 forecast parent').text("Five Day Forecast:"));
+
 
     for (var i = 0; i < 5; i++) {
+        var forecastIcon = data.daily[i].weather[0].icon;
         forecastTemp = data.daily[i].temp.day;
         forecastHumid = data.daily[i].humidity;
         forecastWind = data.daily[i].wind_speed;
+
+        var forecastImg = $('<img>').attr('src',"http://openweathermap.org/img/w/" + forecastIcon + ".png");
 
         var forecastDate = new Date();
         forecastDate.setDate(forecastDate.getDate() + i + 1);
@@ -123,8 +161,10 @@ var forecastWeather = function(data) {
 
         var forecastList = $('<ul>');
         forecastList.attr('style','list-style:none');
-        forecastList.attr('class','cell small-12 medium-5 large-2 parent');
+        forecastList.attr('class','cell small-12 medium-5 large-2 parent forecast');
         $("#forecastWeather").append(forecastList);
+
+        forecastList.append(forecastImg);
 
         var forcastDateEl = $('<li>')
         forcastDateEl.text(formatDate);
@@ -193,9 +233,7 @@ var storageCheck = function(array,query) {
 };
 
 var recallWeather = function(event) {
-    console.log(event.target);
     var cityName = event.target.id;
-    console.log(cityName);
     $('input').val(cityName);
     getLatLong();
 }
