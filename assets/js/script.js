@@ -57,7 +57,34 @@ var currentWeather = function(data) {
     var currentHumidity = data.current.humidity;
     var currentWindSpeed = data.current.wind_speed;
     var currentUVI = data.current.uvi;
-    console.log(currentTemp, currentHumidity, currentWindSpeed, currentUVI);
+
+    var cityName = $('input')[0].value;
+    var cityEl = $("<h2>" + cityName + "</h2>");
+    // style City Name here and write the city name in Title Case somehow
+    $('#currentWeather').append(cityEl);
+
+    var currentList = $('<ul>');
+    currentList.attr('style','list-style:none');
+
+    var currentListTemp = $('<li>');
+    currentListTemp.text("Temperature: " + currentTemp + " °F");
+
+    var currentListHumid = $('<li>');
+    currentListHumid.text("Humidity: " + currentHumidity + "%");
+
+    var currentListUVI = $('<li>');
+    currentListUVI.text("UV Index: " + currentUVI);
+
+    var currnetListWind = $('<li>');
+    currnetListWind.text("Wind Speed: " + currentWindSpeed + " mph");
+
+    $("#currentWeather").append(currentList);
+    currentList.append(currentListTemp);
+    currentList.append(currentListHumid);
+    currentList.append(currentListUVI);
+    currentList.append(currnetListWind);
+    
+
 }
 
 // populates the five day forecast section
