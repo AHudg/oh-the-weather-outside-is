@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+form {
+    width: 100%;
+    
+}
+
+label {
+    color:white;
+    display:inline;
+}
+
+#cityName {
+    max-width:200px;
+    display: inline;
+    margin: 0;
+}
+
+/* These classes are being used for brainstorming purposes and should be deleted and elements all restyled */
+.bg-pink {
+    background-color: pink;
+    height:500px;
+}
+
+.bg-blue {
+    background-color: blue;
+    height:500px;
+}
+
+.bg-green {
+    background-color: green;
+    height:500px;
+}
