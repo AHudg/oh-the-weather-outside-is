@@ -62,6 +62,17 @@ var currentWeather = function(data) {
     var cityEl = $("<h2>" + cityName + "</h2>");
     // style City Name here and write the city name in Title Case somehow
     $('#currentWeather').append(cityEl);
+    var getDate = new Date();
+    var currentDate = getDate.toLocaleString('en-US',{
+        weekday: 'long',
+        day:'numeric',
+        year:'numeric',
+        month:'long',
+    });
+    var timeEl = $("<span>");
+    timeEl.text(currentDate);
+    $('#currentWeather').append(timeEl);
+
 
     var currentList = $('<ul>');
     currentList.attr('style','list-style:none');
@@ -87,18 +98,17 @@ var currentWeather = function(data) {
 
 // populates the five day forecast section
 var forecastWeather = function(data) {
-    // var currentTemp = [];
-    // var currentHumidity = [];
-    // var currentWindSpeed = [];
-    // var currentUVI = [];
+    var currentTemp = [];
+    var currentHumidity = [];
+    var currentWindSpeed = [];
+    var currentUVI = [];
 
     for (var i = 0; i < 5; i++) {
-        var currentTemp[i] = data.daily[i].temp.day;
-        var currentHumidity[i] = data.daily[i].humidity;
-        var currentWindSpeed[i] = data.daily[i].wind_speed;
-        var currentUVI[i] = data.daily[i].uvi;
+        currentTemp[i] = data.daily[i].temp.day;
+        currentHumidity[i] = data.daily[i].humidity;
+        currentWindSpeed[i] = data.daily[i].wind_speed;
+        currentUVI[i] = data.daily[i].uvi;
     };
-    console.log(currentTemp);
 
     var cityName = $('input')[0].value;
     var cityEl = $("<h2>" + cityName + "</h2>");
