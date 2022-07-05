@@ -103,10 +103,23 @@ var forecastWeather = function(data) {
         forecastHumid = data.daily[i].humidity;
         forecastWind = data.daily[i].wind_speed;
 
+        var forecastDate = new Date();
+        forecastDate.setDate(forecastDate.getDate() + i + 1);
+        var formatDate = forecastDate.toLocaleString('en-US',{
+            weekday: 'long',
+            day:'numeric',
+            year:'numeric',
+            month:'long',
+        });
+
         var forecastList = $('<ul>');
         forecastList.attr('style','list-style:none');
-        forecastList.attr('class','cell small-12 medium-2');
+        forecastList.attr('class','cell small-12 medium-4 large-2');
         $("#forecastWeather").append(forecastList);
+
+        var forcastDateEl = $('<li>')
+        forcastDateEl.text(formatDate);
+        forecastList.append(forcastDateEl);
 
         var forecastTempLiEl = $('<li>');
         forecastTempLiEl.text("Temperature: " + forecastTemp + " °F");

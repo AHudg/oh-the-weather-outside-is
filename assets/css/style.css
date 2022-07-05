@@ -4,13 +4,17 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: aliceblue;
+}
+
 /* Styles the search form */
 form {
     width: 100%;
 }
 
 label {
-    color:white;
+    /* color:white; */
     display:inline;
     font-size: 5vw;
 }
@@ -23,22 +27,18 @@ label {
 
 .searchBtn {
     width: 90%;
-    border: white solid 3px;
-    color:white;
+    /* border: white solid 3px;
+    color:white; */
     height: 40px;
     margin: 5px auto;
 }
 /* End of styling the search form */
 
-/* These classes are being used for brainstorming purposes and should be deleted and elements all restyled */
-.bg-pink {
-    background-color: pink;
+#currentWeather {
+    height: auto;
 }
 
-.bg-blue {
-    background-color: blue;
-}
-
-.bg-green {
-    background-color: green;
+ul {
+    margin: 5px;
+    border: gainsboro 2px solid;
 }
