@@ -7,11 +7,15 @@
     <!-- Compressed CSS for Foundation by ZURB-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css"/>
-    <title>Weather App</title>
+    <title>Andy's Weather App</title>
 </head>
 
 <body>
-    <h1>Andy's Weather Predictions</h1>
+    <header>
+        <h1>Andy's Weather Predictions</h1>
+    </header>
+
+    <!-- classes that pertain to CSS Framework-->
     <section class="grid-container fluid text-center">
         <div class="grid-x align-spaced">
             <!-- div that holds the search ability and localStorage recall buttons-->
@@ -24,7 +28,6 @@
                     <ul id="buttonList"></ul>
                 </form>
             </div>
-            <!-- div that allows my to grid-y for formatting -->
             <div class="cell small-12 medium-7 large-8">
                 <!-- div that contains the current weather of the selected city-->
                 <div id="currentWeather" class="cell small-12 medium-6">

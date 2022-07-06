@@ -34,7 +34,20 @@ h1 {
 }
 
 .forecast {
-    background-color: aqua;
+    background-color: rgba(0,0,200,.5);
+    padding: 5px;
+    border: rgba(0,0,139,1) solid 2px;
+}
+
+.time {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.75rem;
+}
+
+.forecast-time {
+    font-weight:bold;
+    font-style: italic;
 }
 
 /* Styles the search form */
@@ -48,7 +61,6 @@ form {
 }
 
 label {
-    /* color:white; */
     display:inline;
     font-size: 5vw;
     font-weight: lighter;
@@ -93,6 +105,7 @@ label {
     cursor: pointer;
 }
 
+/* Styles the UV Index accordingly to intensity */
 .uvi-low {
     background-color: green;
     border-radius: 5px;
@@ -132,6 +145,7 @@ label {
     padding: 5px;
     margin: auto;
 }
+/* End of UV Index styles */
 
 /* For iPads and Tablets 481px - 768px */
 @media screen and (min-width:481px) {
