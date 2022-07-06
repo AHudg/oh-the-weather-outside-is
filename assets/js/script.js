@@ -213,7 +213,9 @@ var buttonSave = function(cityName) {
 
 var populateButtons = function() {
     $('#buttonList').empty();
+
     previousCities = JSON.parse(localStorage.getItem("Cities"));
+
     if (previousCities) {
         for (var i = 0; i < previousCities.length; i++) {
             var buttonEl = $("<button type='button' id='"+ previousCities[i] + "'>");
@@ -226,6 +228,7 @@ var populateButtons = function() {
 
 var storageCheck = function(array,query) {
     var filteredCities = [];
+
     array.filter(function(array) {
         filteredCities.push(array.indexOf(query) !== -1);
         return filteredCities;
